@@ -108,6 +108,7 @@
       <div>
         <div class="flex items-center space-x-2">
           <span class="font-heading font-extrabold text-lg tracking-tight bg-gradient-to-r from-teal-300 via-indigo-300 to-rose-300 bg-clip-text text-transparent">CAREER COMPASS</span>
+          <span class="px-2 py-0.5 rounded-full bg-teal-950/90 border border-teal-500/50 text-teal-300 text-[10px] font-extrabold tracking-wider uppercase shadow-inner">β版</span>
         </div>
         <p class="text-[11px] text-slate-400 tracking-wider">本音で選ぶ、深層心理の働き方適性診断</p>
       </div>
@@ -129,12 +130,13 @@
     <!-- VIEW 1: トップページ (Hero & Introduction) -->
     <section id="view-hero" class="transition-all duration-300">
       <div class="text-center space-y-6 max-w-2xl mx-auto pt-6 pb-8 px-4 sm:px-8 rounded-3xl bg-slate-950/80 border border-slate-800/90 shadow-2xl backdrop-blur-xl">
-        <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-indigo-950 border border-indigo-400/50 text-indigo-200 text-xs font-bold shadow-inner">
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-indigo-950/90 border border-indigo-400/50 text-indigo-200 text-xs font-bold shadow-inner">
           <span class="flex h-2 w-2 relative">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2 w-2 bg-teal-400"></span>
           </span>
-          <span>就職・転職で悩む20代〜30代のリアルな本音に答える</span>
+          <span class="px-1.5 py-0.5 rounded bg-teal-500/20 text-teal-300 text-[10px] font-black border border-teal-500/30">β版</span>
+          <span>先行ベータ公開中 ｜ 深層心理から本音に答える働き方適性診断</span>
         </div>
 
         <h1 class="text-3xl sm:text-5xl font-black tracking-tight leading-tight sm:leading-tight text-white">
@@ -647,12 +649,22 @@
               1001
             </span>
           </div>
-          <div class="flex items-center justify-center gap-2">
+          <div class="flex flex-col items-center justify-center gap-2 pt-1">
+            <!-- β版限定: 診断結果直接確認ボタン（本番運用時は下記のコピーボタンへ切り替え可能） -->
+            <button onclick="app.viewFullResultDirectly()" id="btn-view-result-beta" class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-teal-500 via-indigo-600 to-teal-400 hover:from-teal-400 hover:to-indigo-500 text-white font-extrabold text-sm shadow-xl shadow-teal-500/25 transition-all transform hover:-translate-y-0.5 cursor-pointer">
+              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              <span>診断結果をすぐ確認する(β版)</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+            <p class="text-[11px] text-teal-300/80 font-medium pt-1">※現在はβ版のため、公式LINE連携前でも上記ボタンから診断結果をすぐご覧いただけます</p>
+
+            <!-- 【本番用復帰枠】LINE自動応答本番稼働時に使用
             <button onclick="app.copyGateCode()" class="inline-flex items-center space-x-1.5 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-200 hover:text-white border border-slate-700 transition-all shadow-sm">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"/></svg>
               <span>暗号コードをコピー</span>
             </button>
             <span id="copy-success-badge" class="hidden text-xs text-teal-400 font-bold animate-pulse">✓ コピーしました！</span>
+            -->
           </div>
         </div>
 
@@ -854,6 +866,7 @@
     <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="flex items-center space-x-2">
         <span class="font-heading font-extrabold text-slate-300">CAREER COMPASS</span>
+        <span class="px-1.5 py-0.5 rounded bg-teal-950 border border-teal-500/40 text-teal-300 text-[10px] font-bold">β版</span>
         <span class="text-slate-400">| 働き方適性診断ナビ</span>
       </div>
       <div class="flex items-center space-x-4 text-[11px] text-slate-400">
@@ -862,7 +875,7 @@
         <span>利用規約</span>
       </div>
     </div>
-    <p class="text-[11px] text-slate-400 pt-2">© 2026 CAREER COMPASS. All rights reserved.</p>
+    <p class="text-[11px] text-slate-400 pt-2">© 2026 CAREER COMPASS [Beta Ver 0.9.0]. All rights reserved.</p>
   </footer>
 
   <!-- 静的データモジュール（サーバーレス・静的Web対応） -->
