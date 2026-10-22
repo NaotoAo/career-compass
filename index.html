@@ -878,9 +878,21 @@
     <p class="text-[11px] text-slate-400 pt-2">© 2026 CAREER COMPASS [Beta Ver 0.9.0]. All rights reserved.</p>
   </footer>
 
-  <!-- 静的データモジュール（サーバーレス・静的Web対応） -->
+  <!-- 静的データモジュール（js/配下 & ルート直下フェイルセーフ対応） -->
   <script src="js/data.js"></script>
-  <!-- アプリケーションロジック -->
+  <script>
+    if (typeof window.CAREER_COMPASS_DATA === 'undefined') {
+      document.write('<script src="data.js"><\/script>');
+    }
+  </script>
+
+  <!-- アプリケーションロジック（js/配下 & ルート直下フェイルセーフ対応） -->
   <script src="js/app.js"></script>
+  <script>
+    // もしjs/app.jsが旧バージョンでviewFullResultDirectlyが未定義の場合、または未ロード時はルート直下のapp.jsを自動ロード
+    if (typeof window.app === 'undefined' || typeof window.app.viewFullResultDirectly !== 'function') {
+      document.write('<script src="app.js"><\/script>');
+    }
+  </script>
 </body>
 </html>
