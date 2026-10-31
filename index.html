@@ -289,13 +289,10 @@
           <p id="quick-preview" class="text-xs text-slate-300 leading-relaxed">
             あなたの深層心理にある「なぜ今の仕事に物足りなさを感じるのか」「どんな組織文化なら息苦しくないか」を計30問でさらに解明します。
           </p>
-          <div class="pt-2 flex flex-col sm:flex-row gap-3">
-            <button onclick="app.continueToFullDiagnosis()" class="flex-1 py-3.5 px-5 rounded-xl bg-gradient-to-r from-indigo-600 to-rose-600 hover:from-indigo-500 hover:to-rose-500 text-white font-extrabold text-sm shadow-lg shadow-indigo-600/30 transition-all flex items-center justify-center space-x-2">
-              <span>さらに25問答えて最終結果をアンロック（約3分）</span>
+          <div class="pt-2">
+            <button onclick="app.continueToFullDiagnosis()" class="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-indigo-600 to-rose-600 hover:from-indigo-500 hover:to-rose-500 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-indigo-600/30 transition-all flex items-center justify-center space-x-2 btn-press">
+              <span>さらに25問答えて精密診断にチャレンジ（約3分）</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-            </button>
-            <button onclick="app.scrollToConsultation('quick')" class="py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition-colors">
-              この結果で無料相談する
             </button>
           </div>
           <div class="pt-2 border-t border-slate-800/80">
@@ -303,6 +300,31 @@
               <span>🧭 他のクイックタイプ（全4種）や深層心理タイプと比較する</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </button>
+          </div>
+        </div>
+
+        <!-- クイック診断連動: 無料キャリア相談・適職案内 ＆ 株式会社アーチ オンライン登録導線 -->
+        <div id="quick-consultation-section" class="p-6 rounded-2xl bg-gradient-to-br from-slate-900 via-indigo-950/70 to-slate-900 border border-teal-500/40 shadow-xl space-y-4">
+          <div class="text-center space-y-2">
+            <div class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-teal-950 border border-teal-500/40 text-teal-300 text-xs font-bold">
+              <span>🤝 完全無料サポート ｜ 無料キャリア相談・適職案内</span>
+            </div>
+            <h4 class="text-lg sm:text-xl font-extrabold text-white">
+              あなたの適性に合った求人紹介・キャリア相談なら 株式会社アーチ
+            </h4>
+            <p class="text-xs text-slate-300 max-w-lg mx-auto leading-relaxed">
+              診断結果をもとに、あなたの本音の価値観や強みを活かせる非公開求人のご案内や、プロのキャリアアドバイザーによる適職相談を完全無料で受け付けています。
+            </p>
+          </div>
+
+          <div class="pt-2 text-center max-w-md mx-auto">
+            <a href="https://job-arch.co.jp/online.html" target="_blank" rel="noopener noreferrer" 
+               class="inline-flex items-center justify-center space-x-2.5 w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-teal-400 via-emerald-500 to-teal-600 hover:from-teal-300 hover:to-emerald-400 text-slate-950 font-black text-sm shadow-xl shadow-teal-500/25 transition-all transform hover:-translate-y-0.5 btn-press">
+              <span class="text-lg">📝</span>
+              <span>株式会社アーチ 公式オンライン登録（無料）</span>
+              <svg class="w-4 h-4 text-slate-950" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
+            <p class="text-[11px] text-slate-400 mt-2">※WEBから24時間いつでも簡単2分で登録完了。費用は一切かかりません。</p>
           </div>
         </div>
       </div>
@@ -447,6 +469,50 @@
               <span class="text-slate-400 font-semibold block mb-1.5">向いている雇用形態・ワークスタイル:</span>
               <p id="full-employment" class="text-teal-300 font-bold bg-teal-950/60 p-2.5 rounded-lg border border-teal-500/30"></p>
             </div>
+            <div class="pt-2">
+              <span class="text-slate-400 font-semibold block mb-1.5">あなたの3大強み（Strengths）:</span>
+              <div id="full-strengths" class="flex flex-wrap gap-2">
+                <!-- badges -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 🍓 栃木県内適合企業 ＆ 11/1フェア出展企業連携（REP-13野尻社長提案対応） -->
+        <div id="full-tochigi-fit-section" class="p-6 rounded-2xl bg-gradient-to-br from-slate-900 via-emerald-950/40 to-slate-900 border border-emerald-500/30 shadow-xl space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-emerald-500/20 pb-3">
+            <div class="flex items-center space-x-2">
+              <span class="text-xl">🍓</span>
+              <div>
+                <h4 class="text-base font-extrabold text-white">あなたの適性にマッチする栃木県内企業 ＆ 産業</h4>
+                <p class="text-[11px] text-emerald-400 font-medium">11/1 オールとちぎ移住＆しごとフェア2026 連動企画</p>
+              </div>
+            </div>
+            <div id="full-tochigi-index" class="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-400/50 text-emerald-300 text-xs font-black">
+              <!-- Tochigi Fit Index -->
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <div>
+              <span class="text-[11px] text-slate-400 font-bold block mb-1">適合産業クラスター:</span>
+              <p id="full-tochigi-cluster" class="text-xs sm:text-sm text-slate-200 font-medium bg-slate-950/60 p-2.5 rounded-lg border border-slate-800"></p>
+            </div>
+
+            <div>
+              <span class="text-[11px] text-slate-400 font-bold block mb-2">おすすめ栃木県内企業例（成長企業・優良企業）:</span>
+              <div id="full-tochigi-companies" class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <!-- 企業カード動的生成 -->
+              </div>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-emerald-950/40 border border-emerald-500/20 flex items-start space-x-3">
+              <span class="text-base text-emerald-400 mt-0.5">🎪</span>
+              <div class="text-xs text-slate-300 leading-relaxed">
+                <span class="font-bold text-emerald-300">11/1フェア特別ヒント: </span>
+                <span id="full-tochigi-tip"></span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -468,17 +534,17 @@
         </div>
       </div>
 
-      <!-- 真の目的：集客＆コンバージョンセクション (有料職業紹介・人材派遣への導線) -->
+      <!-- 無料キャリア相談・適職案内 ＆ 株式会社アーチ オンライン登録導線 -->
       <div id="consultation-section" class="glass-card rounded-2xl p-6 sm:p-10 border border-teal-500/40 shadow-2xl relative overflow-hidden bg-gradient-to-b from-slate-900 to-indigo-950/90 space-y-6">
         <div class="text-center space-y-2 max-w-xl mx-auto">
           <span class="px-3 py-1 rounded-full bg-teal-500/20 text-teal-300 text-xs font-bold border border-teal-500/40">
             診断結果連動 / 完全無料サポート
           </span>
           <h3 id="cta-hook-title" class="text-xl sm:text-2xl font-black text-white">
-            あなたの突破力を求めている「急成長スタートアップ・新規事業」をご紹介します
+            無料キャリア相談・適職案内
           </h3>
           <p id="cta-hook-desc" class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-            大手や堅い企業の採用基準では見落とされがちな、あなたの爆発的な推進力を評価する厳選求人があります。まずは非公開求人リストをご覧ください。
+            診断結果をもとに、あなたの本音の価値観や強みを活かせる非公開求人のご案内や、キャリアカウンセラーによる適職相談を完全無料で受け付けています。
           </p>
         </div>
 
@@ -498,79 +564,38 @@
           </div>
         </div>
 
-        <!-- 無料相談・非公開求人エントリーフォーム -->
-        <form id="consultation-form" onsubmit="app.submitConsultation(event)" class="max-w-xl mx-auto space-y-4 pt-2">
-          <input type="hidden" id="form-diagnosis-type" value="">
-          
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div>
-              <label class="block text-xs font-semibold text-slate-300 mb-1">お名前（ニックネーム可） <span class="text-rose-400">*</span></label>
-              <input type="text" id="form-name" required placeholder="例: 山田 太郎" class="w-full px-3.5 py-2.5 rounded-lg bg-slate-800 border border-slate-700 focus:border-teal-500 focus:outline-none text-xs text-white">
+        <!-- 株式会社アーチ 公式オンライン登録 CTAバナー（問合せフォームを置き換え） -->
+        <div class="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 border-2 border-teal-500/50 shadow-2xl text-center space-y-4 max-w-xl mx-auto">
+          <div class="space-y-1.5">
+            <div class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-400/40 text-emerald-300 text-[11px] font-bold">
+              <span>🚀 WEBから簡単2分でエントリー完了</span>
             </div>
-            <div>
-              <label class="block text-xs font-semibold text-slate-300 mb-1">ご年代 <span class="text-rose-400">*</span></label>
-              <select id="form-age" class="w-full px-3.5 py-2.5 rounded-lg bg-slate-800 border border-slate-700 focus:border-teal-500 focus:outline-none text-xs text-white">
-                <option value="20代前半 (20〜24歳)">20代前半 (20〜24歳)</option>
-                <option value="20代後半 (25〜29歳)" selected>20代後半 (25〜29歳)</option>
-                <option value="30代前半 (30〜34歳)">30代前半 (30〜34歳)</option>
-                <option value="30代後半 (35〜39歳)">30代後半 (35〜39歳)</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div>
-              <label class="block text-xs font-semibold text-slate-300 mb-1">希望の働き方・雇用形態 <span class="text-rose-400">*</span></label>
-              <select id="form-pref" class="w-full px-3.5 py-2.5 rounded-lg bg-slate-800 border border-slate-700 focus:border-teal-500 focus:outline-none text-xs text-white">
-                <option value="正社員（有料職業紹介）">正社員（有料職業紹介）</option>
-                <option value="紹介予定派遣（社風を見て入社）">紹介予定派遣（社風を見て入社）</option>
-                <option value="人材派遣（残業少なめ・高時給）">人材派遣（残業少なめ・高時給）</option>
-                <option value="まずはプロに相談して決めたい" selected>まずはプロに相談して決めたい</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-xs font-semibold text-slate-300 mb-1">希望の連絡手段 <span class="text-rose-400">*</span></label>
-              <select id="form-contact-type" onchange="app.toggleContactInput()" class="w-full px-3.5 py-2.5 rounded-lg bg-slate-800 border border-slate-700 focus:border-teal-500 focus:outline-none text-xs text-white">
-                <option value="LINE">LINEで気軽に相談</option>
-                <option value="Email">メールで求人案内を受け取る</option>
-                <option value="Online">オンラインWeb面談（Google Meet / Zoom）</option>
-              </select>
-            </div>
-          </div>
-
-          <div>
-            <label id="label-contact-info" class="block text-xs font-semibold text-slate-300 mb-1">LINE ID または メールアドレス <span class="text-rose-400">*</span></label>
-            <input type="text" id="form-contact-info" required placeholder="例: line_id または sample@example.com" class="w-full px-3.5 py-2.5 rounded-lg bg-slate-800 border border-slate-700 focus:border-teal-500 focus:outline-none text-xs text-white">
-          </div>
-
-          <div>
-            <label class="block text-xs font-semibold text-slate-300 mb-1">現在のお悩み・相談したいこと（任意）</label>
-            <textarea id="form-note" rows="2" placeholder="例: 今の職場での人間関係が辛い、自分の適職がわからない、年収を上げたい 等" class="w-full px-3.5 py-2 rounded-lg bg-slate-800 border border-slate-700 focus:border-teal-500 focus:outline-none text-xs text-white"></textarea>
+            <h4 class="text-lg sm:text-xl font-black text-white">
+              株式会社アーチのオンライン登録はこちら
+            </h4>
+            <p class="text-xs text-slate-300 max-w-md mx-auto leading-relaxed">
+              無料キャリア相談・非公開求人のご案内をご希望の方は、株式会社アーチの公式オンライン登録フォームよりお申し込みください。専門スタッフより迅速にご連絡いたします。
+            </p>
           </div>
 
           <div class="pt-2">
-            <button type="submit" id="btn-submit-lead" class="w-full py-4 rounded-xl bg-gradient-to-r from-teal-500 via-indigo-600 to-rose-500 hover:from-teal-400 hover:via-indigo-500 hover:to-rose-400 text-white font-extrabold text-sm sm:text-base shadow-xl shadow-teal-500/20 transition-all flex items-center justify-center space-x-2">
-              <span>無料で非公開求人案内・適職相談を予約する</span>
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-            </button>
-            <p class="text-[11px] text-slate-400 text-center mt-2">※有料職業紹介事業者・労働者派遣事業者（厚生労働大臣許可）の提携サポートです。費用は一切かかりません。</p>
+            <a href="https://job-arch.co.jp/online.html" target="_blank" rel="noopener noreferrer" 
+               class="inline-flex items-center justify-center space-x-3 w-full py-4 px-8 rounded-2xl bg-gradient-to-r from-teal-400 via-emerald-500 to-teal-600 hover:from-teal-300 hover:to-emerald-400 text-slate-950 font-black text-base sm:text-lg shadow-xl shadow-teal-500/30 transition-all transform hover:-translate-y-0.5 btn-press">
+              <span class="text-xl">📝</span>
+              <span>今すぐオンライン登録する（無料）</span>
+              <svg class="w-5 h-5 text-slate-950" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
           </div>
-        </form>
 
-        <!-- 送信完了モーダル / 成功表示 -->
-        <div id="lead-success-msg" class="hidden p-6 rounded-2xl bg-teal-950/90 border border-teal-500/50 text-center space-y-3">
-          <div class="w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 mx-auto flex items-center justify-center">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-          </div>
-          <h4 class="text-lg font-bold text-white">お申し込みを受け付けました！</h4>
-          <p class="text-xs text-slate-300 max-w-md mx-auto leading-relaxed">
-            ご入力いただいた連絡先へ、専任のキャリアアドバイザーよりあなたに合わせた非公開求人リストと相談日程のご案内をお送りいたします。<br>
-            受付管理番号: <span id="lead-success-id" class="font-mono font-bold text-teal-300">LEAD-xxxx</span>
-          </p>
-          <div class="pt-2">
-            <button onclick="app.resetToHome()" class="px-5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300">
-              診断トップに戻る
-            </button>
+          <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-2 text-xs text-slate-400 border-t border-slate-800/80">
+            <div class="flex items-center space-x-1.5">
+              <span>🏢 運営会社:</span>
+              <span class="font-bold text-slate-200">株式会社アーチ</span>
+            </div>
+            <span class="hidden sm:inline text-slate-600">|</span>
+            <div class="text-[11px] text-slate-400">
+              有料職業紹介（09-ユ-300220）／ 労働者派遣（派09-300305）
+            </div>
           </div>
         </div>
       </div>
@@ -803,14 +828,44 @@
           <span class="text-slate-400 font-semibold block mb-1">向いている雇用形態:</span>
           <p id="modal-employment" class="text-teal-300 font-bold bg-teal-950/60 p-2 rounded-lg border border-teal-500/30 text-xs"></p>
         </div>
+        <div id="modal-strengths-box" class="pt-1">
+          <span class="text-slate-400 font-semibold block mb-1">3大強み（Strengths）:</span>
+          <div id="modal-strengths" class="flex flex-wrap gap-1.5"></div>
+        </div>
+      </div>
+
+      <!-- 🍓 栃木県内適合企業 ＆ 11/1フェア連携（モーダル内） -->
+      <div id="modal-tochigi-fit-section" class="p-4 rounded-xl bg-slate-800/80 border border-emerald-500/30 space-y-3 text-xs">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-extrabold text-emerald-400 flex items-center space-x-1.5">
+            <span>🍓</span>
+            <span>栃木県内適合企業 ＆ 11/1フェア連携</span>
+          </span>
+          <span id="modal-tochigi-index" class="px-2.5 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-500/40 text-[10px] font-bold"></span>
+        </div>
+        <div>
+          <span class="text-slate-400 font-semibold block mb-1">適合産業クラスター:</span>
+          <p id="modal-tochigi-cluster" class="text-slate-200 text-xs bg-slate-900/80 p-2 rounded-lg border border-slate-700/60"></p>
+        </div>
+        <div>
+          <span class="text-slate-400 font-semibold block mb-1.5">おすすめ栃木県内企業例（成長企業・優良企業）:</span>
+          <div id="modal-tochigi-companies" class="grid grid-cols-1 sm:grid-cols-3 gap-2"></div>
+        </div>
+        <div id="modal-tochigi-tip-box" class="p-2.5 rounded-lg bg-emerald-950/40 border border-emerald-500/20 text-xs text-slate-300 flex items-start space-x-2">
+          <span class="text-emerald-400 mt-0.5">🎪</span>
+          <div>
+            <span class="font-bold text-emerald-300">11/1フェア特別ヒント: </span>
+            <span id="modal-tochigi-tip"></span>
+          </div>
+        </div>
       </div>
 
       <!-- モーダルアクションボタン -->
       <div class="pt-2 flex flex-col sm:flex-row gap-2.5">
-        <button id="btn-modal-consult" onclick="app.selectTypeForConsultation()" class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-teal-500 via-indigo-600 to-rose-500 hover:from-teal-400 text-white font-extrabold text-xs shadow-lg transition-all flex items-center justify-center space-x-1.5">
-          <span>このタイプで無料相談・求人案内を予約する</span>
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-        </button>
+        <a href="https://job-arch.co.jp/online.html" target="_blank" rel="noopener noreferrer" id="btn-modal-consult" class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-teal-400 via-emerald-500 to-teal-600 hover:from-teal-300 text-slate-950 font-black text-xs shadow-lg transition-all flex items-center justify-center space-x-1.5 btn-press">
+          <span>無料キャリア相談・適職案内（オンライン登録）へ</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        </a>
         <button onclick="app.closeTypeModal()" class="py-3 px-5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition-colors">
           閉じる
         </button>
